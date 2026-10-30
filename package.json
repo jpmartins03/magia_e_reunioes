@@ -1,0 +1,11 @@
+{
+  "name": "magia_e_reunioes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lista de cartas de Magic do formato Turtle com preços da LigaMagic",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve@14.2.4 public",
+    "test": "node --test"
+  }
+}

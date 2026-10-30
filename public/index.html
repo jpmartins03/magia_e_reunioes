@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Cartas do Turtle</title>
+    <meta
+      name="description"
+      content="Cartas do Standard de Magic que custam até R$ 2 na faixa verde da LigaMagic."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <h1>Cartas do <em>Turtle</em></h1>
+        <p class="lede">
+          Todas as cartas do Standard que custam até R$ 2 na faixa verde da LigaMagic (Preço Médio
+          de Venda no Marketplace). Vale a versão mais barata da carta em qualquer coleção, inclusive
+          reimpressões antigas, e o menor preço entre Normal e Foil. Cada carta mostra de qual edição
+          e acabamento vem o preço. Preços consultados em <span id="consulta">29.10.2026</span>. Toque
+          numa imagem para ampliar, ou no nome para abrir na LigaMagic. Preços mudam: confira antes de
+          comprar.
+        </p>
+        <details class="rot" id="mudancas" hidden>
+          <summary id="mudancas-titulo">Mudanças na lista</summary>
+          <div id="mudancas-corpo"></div>
+        </details>
+      </header>
+    </div>
+
+    <div class="bar">
+      <div class="wrap">
+        <div class="row">
+          <input
+            type="search"
+            id="busca"
+            placeholder="Buscar pelo nome em inglês, ex.: Coulson"
+            aria-label="Buscar carta"
+          />
+          <select id="preco" aria-label="Preço máximo"></select>
+          <select id="ordem" aria-label="Ordenar">
+            <option value="cor">Por cor e nome</option>
+            <option value="barato">Mais baratas primeiro</option>
+            <option value="caro">Mais caras primeiro</option>
+          </select>
+        </div>
+        <div class="row" id="cores" role="group" aria-label="Cor"></div>
+        <div class="row" id="tipos" role="group" aria-label="Tipo"></div>
+        <div class="count" id="contagem" role="status"></div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <div id="saida"><p class="empty">Carregando as cartas…</p></div>
+      <div class="more">
+        <button class="btn" id="mais" type="button" hidden>Mostrar mais cartas</button>
+      </div>
+    </main>
+
+    <footer class="wrap">
+      Imagens: Scryfall. Preços: LigaMagic. Cartas de dupla face aparecem pelo nome da primeira face.
+    </footer>
+
+    <dialog class="lb" id="detalhe" aria-labelledby="detalhe-nome">
+      <div class="box">
+        <button class="close" type="button" id="detalhe-fechar">Fechar</button>
+        <div class="big" id="detalhe-imagem"></div>
+        <h3 id="detalhe-nome"></h3>
+        <div class="meta">
+          <span id="detalhe-tipo"></span>
+          <span class="price" id="detalhe-preco"></span>
+        </div>
+        <div class="links">
+          <a id="detalhe-liga" target="_blank" rel="noopener">Abrir na LigaMagic</a>
+          <a id="detalhe-scryfall" target="_blank" rel="noopener">Ver no Scryfall</a>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
